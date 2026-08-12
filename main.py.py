@@ -97,7 +97,7 @@ async def cmd_start(message: Message):
     )
     await message.answer(text, reply_markup=main_menu_kb(message.from_user.id), parse_mode="Markdown")
 @dp.callback_query(F.data == "back_main")
-async def back_main_handler(call: CallbackQuery, state: FSMContext):
+async def back_main_handler(call:CallbackQuery, state: FSMContext):
     await state.clear()
     await call.message.edit_text(
         "Bosh menyudasiz. Kerakli bo'limni tanlang:",
@@ -194,7 +194,8 @@ async def approve_payment(call: CallbackQuery):
         caption=call.message.caption + f"\n\n✅ TASDIQLANDI! (Balansga {amount:,} so'm qo'shildi)",
         reply_markup=None
     )
-    await call.answer("To'lov tasdiqlandi!") try:
+    await call.answer("To'lov tasdiqlandi!")
+    try:
         await bot.send_message(
             chat_id=target_user_id,
             text=f"🎉 Hisobingiz to'ldirildi!\n\n💰 Qo'shildi: {amount:,} so'm\n💳 Joriy balans: {new_bal:,} so'm",
