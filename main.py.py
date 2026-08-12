@@ -1,4 +1,4 @@
-[12.08.2026 11:04] Тот самый Жавохир 🐾: import asyncio
+import asyncio
 import logging
 import sqlite3
 import aiohttp
