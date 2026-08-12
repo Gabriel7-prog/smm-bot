@@ -1,4 +1,4 @@
-[12.08.2026 12:04] 𝑴𝑮𝑹 • 𝑨𝒕𝒑𝒆𝒄𝒉𝒂𝒕𝒌𝒂 🫆: import asyncio
+import asyncio
 import logging
 import sqlite3
 import aiohttp
@@ -96,7 +96,7 @@ async def cmd_start(message: Message):
         f"Bot orqali SMM xizmatlari, Telegram Stars, Gifts va Virtual raqamlarni avtomatik xarid qilishingiz mumkin."
     )
     await message.answer(text, reply_markup=main_menu_kb(message.from_user.id), parse_mode="Markdown")
-[12.08.2026 12:04] 𝑴𝑮𝑹 • 𝑨𝒕𝒑𝒆𝒄𝒉𝒂𝒕𝒌𝒂 🫆: @dp.callback_query(F.data == "back_main")
+@dp.callback_query(F.data == "back_main")
 async def back_main_handler(call: CallbackQuery, state: FSMContext):
     await state.clear()
     await call.message.edit_text(
@@ -195,7 +195,7 @@ async def approve_payment(call: CallbackQuery):
         reply_markup=None
     )
     await call.answer("To'lov tasdiqlandi!")
-[12.08.2026 12:04] 𝑴𝑮𝑹 • 𝑨𝒕𝒑𝒆𝒄𝒉𝒂𝒕𝒌𝒂 🫆: try:
+        try:
         await bot.send_message(
             chat_id=target_user_id,
             text=f"🎉 Hisobingiz to'ldirildi!\n\n💰 Qo'shildi: {amount:,} so'm\n💳 Joriy balans: {new_bal:,} so'm",
