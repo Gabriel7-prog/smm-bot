@@ -99,7 +99,7 @@ def back_to_main_kb():
     return InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="🔙 Orqaga", callback_data="back_main")]])
 
 # ==================== HANDLERS (LOGIKA) ====================
-[12.08.2026 11:04] Тот самый Жавохир 🐾: @dp.message(CommandStart())
+@dp.message(CommandStart())
 async def cmd_start(message: Message):
     init_db()
     get_user_balance(message.from_user.id)
@@ -205,7 +205,7 @@ async def gifts_section(call: CallbackQuery):
         parse_mode="Markdown"
     )
     await call.answer()
-[12.08.2026 11:46] 𝑴𝑮𝑹 • 𝑨𝒕𝒑𝒆𝒄𝒉𝒂𝒕𝒌𝒂 🫆: import asyncio
+import asyncio
 import logging
 import sqlite3
 import aiohttp
@@ -303,7 +303,7 @@ async def cmd_start(message: Message):
         f"Bot orqali SMM xizmatlari, Telegram Stars, Gifts va Virtual raqamlarni avtomatik xarid qilishingiz mumkin."
     )
     await message.answer(text, reply_markup=main_menu_kb(message.from_user.id), parse_mode="Markdown")
-[12.08.2026 11:46] 𝑴𝑮𝑹 • 𝑨𝒕𝒑𝒆𝒄𝒉𝒂𝒕𝒌𝒂 🫆: @dp.callback_query(F.data == "back_main")
+@dp.callback_query(F.data == "back_main")
 async def back_main_handler(call: CallbackQuery, state: FSMContext):
     await state.clear()
     await call.message.edit_text(
@@ -397,7 +397,7 @@ async def approve_payment(call: CallbackQuery):
 
     add_user_balance(target_user_id, amount)
     new_bal = get_user_balance(target_user_id)
-[12.08.2026 11:46] 𝑴𝑮𝑹 • 𝑨𝒕𝒑𝒆𝒄𝒉𝒂𝒕𝒌𝒂 🫆: await call.message.edit_caption(
+await call.message.edit_caption(
         caption=call.message.caption + f"\n\n✅ TASDIQLANDI! (Balansga {amount:,} so'm qo'shildi)",
         reply_markup=None
     )
