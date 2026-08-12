@@ -194,8 +194,7 @@ async def approve_payment(call: CallbackQuery):
         caption=call.message.caption + f"\n\n✅ TASDIQLANDI! (Balansga {amount:,} so'm qo'shildi)",
         reply_markup=None
     )
-    await call.answer("To'lov tasdiqlandi!")
-        try:
+    await call.answer("To'lov tasdiqlandi!") try:
         await bot.send_message(
             chat_id=target_user_id,
             text=f"🎉 Hisobingiz to'ldirildi!\n\n💰 Qo'shildi: {amount:,} so'm\n💳 Joriy balans: {new_bal:,} so'm",
